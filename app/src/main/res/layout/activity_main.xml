@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFEEEE"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <!--    toolbar design are placed here-->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/toolbar_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#0d0e10"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.2"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/backpress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackgroundBorderless">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                app:tint="@color/white"
+                                tools:ignore="VectorDrawableCompat" />
+
+                            <LinearLayout
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+
+                                    <ImageView
+                                        android:id="@+id/profile_image"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:padding="2dp"
+                                        android:src="@drawable/account_circle_24"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/user_information_from_chatpage"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="9"
+                        android:background="?attr/selectableItemBackground">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="?attr/selectableItemBackground"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/title_name_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingStart="5dp"
+                                    android:text="Nikhi shah"
+                                    android:textColor="@color/white"
+                                    android:textSize="18sp"
+                                    tools:ignore="RtlSymmetry" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/title_status_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingStart="5dp"
+                                    android:text="MH 04 KQ 9072 Maruti XL5"
+                                    tools:ignore="RtlSymmetry" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <!--    all messages are placed here -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/senderarea"
+        android:layout_below="@+id/toolbar_area"
+        android:visibility="gone">
+
+
+        <LinearLayout
+            android:id="@+id/progressBararea"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ProgressBar
+                android:id="@+id/progressBar2"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/message_list_recyclerview" />
+
+        </LinearLayout>
+
+
+        <!--        <androidx.cardview.widget.CardView-->
+        <!--            android:layout_width="40dp"-->
+        <!--            android:layout_height="40dp"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:layout_marginEnd="10dp"-->
+        <!--            android:layout_marginRight="10dp"-->
+        <!--            android:layout_marginBottom="20dp"-->
+        <!--            android:alpha="0.8"-->
+        <!--            android:orientation="horizontal"-->
+        <!--            app:cardBackgroundColor="@color/sweet_green"-->
+        <!--            app:cardCornerRadius="10dp"-->
+        <!--            app:cardElevation="4dp"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            tools:ignore="VectorDrawableCompat">-->
+
+
+        <!--            <ImageView-->
+        <!--                android:id="@+id/go_last"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:background="?attr/selectableItemBackground"-->
+        <!--                android:onClick="go_to_bottom"-->
+        <!--                app:srcCompat="@drawable/ic_down" />-->
+
+
+        <!--        </androidx.cardview.widget.CardView>-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/senderarea"
+        android:layout_below="@id/toolbar_area">
+
+        <!--        &lt;!&ndash;recycler view Area&ndash;&gt;-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/message_list_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:listitem="@layout/message_layout_left">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/message_layout_left" />
+
+                <include layout="@layout/message_layout_right" />
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+
+    <!--    bottom edittext and send button are design here-->
+    <RelativeLayout
+        android:id="@+id/senderarea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="4dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="8.5"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/text_send_message"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8.5"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:hint="Type Somethingh here..."
+                    android:importantForAutofill="no"
+                    android:inputType="textMultiLine"
+                    android:maxHeight="150dp"
+                    android:minHeight="50dp"
+                    android:padding="7dp"
+                    android:scrollbars="vertical"
+                    tools:ignore="NestedWeights" />
+
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/attache"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginRight="7dp"
+                        android:background="@drawable/circle_button"
+                        android:padding="5dp"
+                        app:srcCompat="@drawable/nsert_link_24" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/send"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginRight="7dp"
+                        android:background="@drawable/circle_button"
+                        android:padding="5dp"
+                        app:srcCompat="@drawable/ic_send" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <!--            <LinearLayout-->
+            <!--                android:id="@+id/send_layout"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="55dp"-->
+            <!--                android:layout_gravity="bottom"-->
+            <!--                android:layout_marginStart="4dp"-->
+            <!--                android:gravity="center_horizontal"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                tools:ignore="VectorDrawableCompat">-->
+
+            <!--                <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+            <!--                    android:id="@+id/send_message_button"-->
+            <!--                    android:layout_width="55dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:contentDescription="TODO"-->
+            <!--                    app:srcCompat="@drawable/ic_send"-->
+            <!--                    app:tint="@android:color/white" />-->
+            <!--            </LinearLayout>-->
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
